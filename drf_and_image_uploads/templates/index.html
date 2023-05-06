@@ -1,0 +1,72 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Avatar Upload</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <p class="text-muted my-3"><small>KEBS Simple Application Process.</small></p>
+            <h3 class="my-3">1. Log in</h3>
+            <form id="login_form">
+                <div class="form-group">
+                    <label for="id_email">Email address</label>
+                    <input type="email" class="form-control" id="id_email" aria-describedby="emailHelp"
+                           placeholder="Enter email"/>
+                </div>
+                <div class="form-group">
+                    <label for="id_password">Password: </label>
+                    <input type="password" class="form-control" id="id_password" placeholder="Password"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Log in</button>
+            </form>
+
+            <h3 class="my-3">2. Application Details</h3>
+
+            <form id="avatar_form">
+                <h5 class="my-3">2.1 Personal Details</h5>
+                <div class="form-group">
+                    <label for="id_number">ID Number: </label>
+                    <input type="text" class="form-control" id="id_number" placeholder="Enter National ID"/>
+                </div>
+                <div class="form-group">
+                    <label for="id_middle_name">Middle Name <small>(IGNORE IF ONLY TWO NAMES)</small>: </label>
+                    <input type="text" class="form-control" id="id_middle_name" placeholder="Middle Name"/>
+                </div>
+                <div class="form-group">
+                    <label for="id_first_two_names">First & Surname/Maiden Names: </label>
+                    <input type="text" class="form-control" id="id_first_two_names" placeholder="First Surname/Maiden "/>
+                </div>
+                <div class="form-group">
+                    <label for="id_contact">Contact: </label>
+                    <input type="text" class="form-control" id="id_contact" placeholder="254712345678"/>
+                </div>
+                <div class="form-group">
+                    <label for="id_location">Location: </label>
+                    <input type="text" class="form-control" id="id_location" placeholder="Nairobi"/>
+                </div>
+                <h5 class="my-3">2.2 Add Personal Documents</h5>
+                <div class="form-group">
+                    <label for="id_bio">Cover Letter : </label>
+                    <input type="file" class="form-control-file" id="id_bio"/>
+                </div>
+                <div class="form-group">
+                    <label for="id_resume">Resume : </label>
+                    <input type="file" class="form-control-file" id="id_resume"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="{% static 'site/js/avatar.js' %}"></script>
+</body>
+</html>
