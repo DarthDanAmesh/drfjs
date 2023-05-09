@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Avatar Upload</title>
+    <title>Job Application</title>
 </head>
 <body>
 <div class="container">
@@ -16,7 +16,8 @@
         <div class="col-md-8">
             <p class="text-muted my-3"><small>KEBS Simple Application Process.</small></p>
             <h3 class="my-3">1. Log in</h3>
-            <form id="login_form">
+            <form id="login_form" method="post">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="id_email">Email address</label>
                     <input type="email" class="form-control" id="id_email" aria-describedby="emailHelp"
@@ -31,37 +32,67 @@
 
             <h3 class="my-3">2. Application Details</h3>
 
-            <form id="avatar_form">
+            <form id="avatar_form" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                <label for="id_number">How Did you hear about this application? </label>
+                <select class="form-control" id="id_number">
+                    <option value="---">---</option>
+                    <option value="KEBS CAREERS">KEBS Careers Page</option>
+                    <option value="Recommended by a friend or colleague">Recommended by a friend or colleague</option>
+                    <option value="Google/Search engine">Google/Search engine</option>
+                    <option value="Newspaper Advertisement">Newspaper Advertisement or similar</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="Other">Other</option>
+                </select></div>
+
                 <h5 class="my-3">2.1 Personal Details</h5>
                 <div class="form-group">
-                    <label for="id_number">ID Number: </label>
-                    <input type="text" class="form-control" id="id_number" placeholder="Enter National ID"/>
+                    <label for="id_email2">Email address</label>
+                    <input type="email" class="form-control" id="id_email2" aria-describedby="emailHelp"
+                           placeholder="Enter email"/>
                 </div>
+
+                <div class="form-group">
+                    <label for="id_first_two_names">First & Surname/Maiden Names: </label>
+                    <input type="text" class="form-control" id="id_first_two_names" placeholder="First Surname/Maiden "/>
+                </div><small></small>
                 <div class="form-group">
                     <label for="id_middle_name">Middle Name <small>(IGNORE IF ONLY TWO NAMES)</small>: </label>
                     <input type="text" class="form-control" id="id_middle_name" placeholder="Middle Name"/>
                 </div>
                 <div class="form-group">
-                    <label for="id_first_two_names">First & Surname/Maiden Names: </label>
-                    <input type="text" class="form-control" id="id_first_two_names" placeholder="First Surname/Maiden "/>
-                </div>
-                <div class="form-group">
                     <label for="id_contact">Contact: </label>
                     <input type="text" class="form-control" id="id_contact" placeholder="254712345678"/>
-                </div>
+                </div><small></small>
+
                 <div class="form-group">
                     <label for="id_location">Location: </label>
                     <input type="text" class="form-control" id="id_location" placeholder="Nairobi"/>
                 </div>
+                <!--
+                <div class="form-group">
+                <label for="id_location">Location </label>
+                <select class="form-control" id="id_location">
+                    <option value="---">---</option>
+                    <option value="Nairobi">Nairobi</option>
+                    <option value="Nakuru">Nakuru</option>
+                    <option value="Kisumu">Kisumu</option>
+                    <option value="Mombasa">Mombasa</option>
+                    <option value="Namanga">Namanga</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="Other">Other</option>
+                </select></div>
+                -->
                 <h5 class="my-3">2.2 Add Personal Documents</h5>
                 <div class="form-group">
                     <label for="id_bio">Cover Letter : </label>
                     <input type="file" class="form-control-file" id="id_bio"/>
-                </div>
+                </div><small></small>
                 <div class="form-group">
                     <label for="id_resume">Resume : </label>
                     <input type="file" class="form-control-file" id="id_resume"/>
-                </div>
+                </div><small></small>
                 <button type="submit" class="btn btn-primary">Upload</button>
             </form>
         </div>

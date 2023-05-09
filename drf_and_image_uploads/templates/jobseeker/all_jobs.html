@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+<div class="row row-cols-1 row-cols-md-3">
+{% for job in job_list %}
+<div class="col">
+    <div class="card text-center">
+        <!-- if you include an image for company for example {{ job.image}}<img src="{% static 'img/01.jpeg' %}" class="card-img-top" alt="...">-->
+
+        <div class="card-body">
+            <h5 class="card-title"><b>Title: </b>{{ job.title}} </h5>
+            <p class="card-title" text-muted h6> <b>Basis: {{ job.job_type}} </b>| Uploaded: {{job.date_posted}}</p>
+            <p class="card-title"> <b> Description:</b> {{ job.description| safe | slice:":50"}} &hellip;
+                <a href="{% url 'posted_jobsdetails' job.slug %}" class="btn btn-primary">Details &rarr;</a>
+            </p>
+            <!--add clause for authentication(login required)-->
+            <h6 class="card-title"> <b> Qualifications : </b>  {{ job.qualifications_req | slice:":50"}} | <b> Deadline: </b>  {{ job.deadline}}</h6>
+            <a href="{% url 'posted_jobscopy'  %}" class="btn btn-primary">Apply &rarr;</a>
+        </div>
+    </div>
+</div>
+{% empty %}
+
+<div class="text-danger text-center p-5">No jobs posted yet!</div>
+    <div class="card-body">
+            <h4 class="card-title">{{ job.title }}</h4>
+
+            <a href="{% url 'posted_jobscopy' job_id=job.id %}" class="btn btn-primary">View more</a>
+        </div>
+{% endfor %}
+</div>
+</div>
+
+{% endblock body %}

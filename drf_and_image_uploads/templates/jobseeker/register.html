@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Register {% endblock %}
+{% block body %}
+
+<div class="container center">
+    <br><br><br>
+<h2>Welcome!!</h2>
+<h4>We are glad to have you are here</h4>
+<br>
+<h5>Which best describes you today?</h5>
+    <br><br>
+</div>
+
+<a href="{% url 'register-staff' %}" class="btn btn-primary">Staff</a>
+<a href="{% url 'register-applicant' %}" class="btn btn-primary">Applicant</a>
+<!--<a href="{% url 'register-staff' %}" class="btn btn-primary">Staff</a>
+<a href="{% url 'register-applicant' %}" class="btn btn-primary">Applicant</a>-->
+
+
+{% endblock body %}

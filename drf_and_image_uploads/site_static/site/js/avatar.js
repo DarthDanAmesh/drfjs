@@ -1,4 +1,5 @@
 let userToken;
+var csrftoken = $.cookie(‘csrftoken’);
 
 document.getElementById('login_form').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -8,6 +9,7 @@ document.getElementById('login_form').addEventListener('submit', function(event)
     fetch('http://127.0.0.1:8000/api/auth-token/', {
         method: 'POST',
         headers: {
+            'X-CSRFTOKEN': csrftoken,
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -24,6 +26,8 @@ document.getElementById('login_form').addEventListener('submit', function(event)
         console.error('Error:', error);
     });
 });
+
+function submitNewForm(){
 
 document.getElementById('avatar_form').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -50,6 +54,7 @@ document.getElementById('avatar_form').addEventListener('submit', function(event
     fetch('http://127.0.0.1:8000/api/user-uploads/', {
         method: 'POST',
         headers: {
+            'X-CSRFTOKEN': csrftoken),
             'Authorization': `Token ${userToken}`
         },
         body: data
@@ -58,6 +63,10 @@ document.getElementById('avatar_form').addEventListener('submit', function(event
     }).then(data => {
         console.log(data);
     }).catch((error) => {
-        console.error('Error:', error);
+        console.error('Invalid submission details:', error);
     });
+
 });
+}
+    /* code block */
+    /*  */

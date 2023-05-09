@@ -1,7 +1,9 @@
 asgiref
-Django
-djangorestframework
+Django~=3.1.8
+djangorestframework~=3.11.2
 Pillow
 pytz
 six
 sqlparse
+
+django-autoslug~=1.9.9

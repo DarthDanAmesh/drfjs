@@ -1,0 +1,45 @@
+<!--This is the official home page-->
+{% extends 'base.html' %}
+{% block title %} KEBSerecruiter | Home {% endblock %}
+{% load static %}
+{% block body%}
+<section class="bg-light text-dark p-5 p-lg-2 pt-lg-5 text-center text-sm-start">
+    <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <div>
+                <h2>Get your <span class="text-warning">Join KEBS!</span></h2>
+                <p class="lead my-4">
+                    You are in the right place if you are looking for a job.<br><span class="text-danger">Join us
+                    today and build your career now.</span></p>
+                <!--replaced register in the url with services: 03:44 Wednesday-->
+                <a role="button" class="btn btn-primary btn-lg" href="{% url 'posted_jobscopy' %}">JOIN US</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    {% block sidebar %}
+                {% include 'jobseeker/sidebar.html' %}
+    {% endblock sidebar %}
+
+</section>
+
+<!--Footer-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer class="p-1 bg-dark text-white text-center position-relative">
+    <div class="container">
+        <p class="py-6 m-2">
+            &copy; 2023 Kenya Bureau Of Standards (KEBS)  - All rights reserved.
+        </p>
+    </div>
+</footer>
+{% endblock body %}

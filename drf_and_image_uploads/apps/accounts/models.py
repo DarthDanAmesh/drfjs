@@ -10,7 +10,7 @@ if "makemigrations" in sys.argv:
 else:
     from django.utils.translation import gettext_lazy as _
 
-JOB_TYPES = (
+"""JOB_TYPES = (
     ('Full Time', 'Full Time'),
     ('Contract', 'Contract Time'),
     ('Internship', 'Internship'),
@@ -22,7 +22,7 @@ EXPERIENCE_LEVEL = [
     ('INTERMEDIATE-LEVEL', 'INTERMEDIATE-LEVEL'),
     ('MID-LEVEL', 'MID-LEVEL'),
     ('SENIOR OR EXECUTIVE-LEVEL', 'SENIOR OR EXECUTIVE-LEVEL'),
-]
+]"""
 
 COUNTIES_LIST = (
     ('1', 'Mombasa'), ('2', "Nairobi"), ('3', 'Kisumu'), ('4', 'Nakuru'), ('5', 'Namanga'),
@@ -90,3 +90,6 @@ class User(AbstractUser):
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["password"]
+
+    def __str__(self):
+        return self.first_two_names

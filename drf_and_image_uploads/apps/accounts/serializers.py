@@ -10,11 +10,11 @@ class UserUploadSerializer(ModelSerializer):
         model = User
         """
         # add any to the fields for more json body response
-         "last_name", "first_two_names", "id_number",
+         "middle_name", "first_two_names", "id_number",
                                  "email",  "resume", "cover", "contact", "location"
         """
         # maps with javascript side so that bio = input1.files[0], contact = input1.files[0]
-        fields = ["middle_name", "first_two_names", "cover", "resume", "id_number", "contact", "location"]
+        fields = ["middle_name", "first_two_names", "email", "cover", "resume", "id_number", "contact", "location"]
 
     def save(self, *args, **kwargs):
         if self.instance.resume:

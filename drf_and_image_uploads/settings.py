@@ -24,7 +24,8 @@ SECRET_KEY = "6b!ailf2mtz#yw@cxta4!d2b^mptml!zm5p*(4*i+0#26+cy#b"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'subdomain.domain.com']
+CSRF_TRUSTED_ORIGINS = ['http://*.domain.com']
 
 # Application definition
 
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "drf_and_image_uploads.apps.accounts",
+    "jobs",
 ]
 
 MIDDLEWARE = [
